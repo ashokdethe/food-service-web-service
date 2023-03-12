@@ -1,0 +1,35 @@
+
+<section class="container mt-4">
+  <form name="form" #f="ngForm" (ngSubmit)="saveData()" novalidate>
+  <div class="row">
+    <label for="name" class="col-1 col-form-label">Name</label>
+    <div class="col">
+      <div class="form-group">
+        <input type="text"  #name="ngModel" class="form-control" name="name" id="name" [(ngModel)]="foodtruck.name" required/>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger" role="alert">
+          <div *ngIf="name.errors?.['required']" >
+            Name is required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <label for="date" class="col-1 col-form-label">Date</label>
+    <div class="col">
+      <div class="input-group">
+        <input class="form-control" #date="ngModel" readonly placeholder="dd-mm-yyyy" [minDate]="minDate"  name="date" [(ngModel)]="foodtruck.date" ngbDatepicker #d="ngbDatepicker" />
+        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+        <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error">
+          <div *ngIf="date.errors?.['required']">
+            Date is required.
+          </div>
+        </div>
+       </div>
+    </div>
+    <div class="col">
+      <div class="input-group ">
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Save</button>
+      </div>
+    </div>
+     </div>
+    </form>
+</section>

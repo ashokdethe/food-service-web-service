@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Smooch&display=swap');
+body {
+  font-family: Open-Sans;
+}
+.toast-top-center {
+  bottom: 0;
+  margin: 0 auto;
+  margin-top: 70px;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+
